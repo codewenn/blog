@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install",
+    "prettier": "eslint --fix --ext .ts,.tsx,.js,.jsx --quiet ./",
+    "cz":"git add . & git-cz"
   },
   "dependencies": {
     "@types/node": "18.16.0",
@@ -21,5 +24,20 @@
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.1",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.1",
+    "@commitlint/config-conventional": "^17.6.1",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "git-cz": "^4.9.0",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.8"
+  },
+  "lint-staged":{
+    "src/**/*.{ts,tsx}":[
+      "prettier --write",
+      "eslint --cache --fix"
+    ]
   }
 }
